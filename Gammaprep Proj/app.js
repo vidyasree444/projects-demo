@@ -22,11 +22,11 @@ const fetchPrice = async(ctype) =>{
 }
 
 
-const showPrice = (coin)=>{
-    const price = coin.price;
-    const vol = coin.volume;
-    const change = coin.priceChange1d;
-    const coin = coin.name;
+const showPrice = (coinData)=>{
+    const price = coinData.price;
+    const vol = coinData.volume;
+    const change = coinData.priceChange1d;
+    const coin = coinData.name;
     const curr = 'USD';
     var col= "green";
     if(change<0){
