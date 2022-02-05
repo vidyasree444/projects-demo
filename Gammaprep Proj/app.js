@@ -1,24 +1,19 @@
 const form = document.querySelector('#searchForm');
 const res = document.querySelector('#resTable');
 const cont = document.getElementById("allContaint");
-var rec;
+
 form.addEventListener('submit',(e)=>{
     e.preventDefault();
-    if(rec){
-        clearTimeout(rec);
-    }
     const ctype = form.elements.coinType.value;
     cont.classList.add('mainClick');
     cont.classList.remove('main');    
     fetchPrice(ctype);
-    
 
 });
 
 const fetchPrice = async(ctype) =>{
     const r = await axios.get(`https://api.coinstats.app/public/v1/coins/${ctype}?currency=USD`);
     showPrice(r.data.coin);
-     rec = setTimeout(() => fetchPrice(`https://api.cryptonator.com/api/ticker/${ctype}`), 10000);
 }
 
 
